@@ -1008,7 +1008,7 @@ footer {
 /* Floating Back-to-Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 28px;
+  bottom: 92px;
   right: 28px;
   width: 44px;
   height: 44px;
@@ -1020,7 +1020,7 @@ footer {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 90;
+  z-index: 990;
   box-shadow: var(--shadow-sm);
   opacity: 0;
   visibility: hidden;
@@ -1040,11 +1040,110 @@ footer {
 }
 @media (max-width: 640px) {
   .back-to-top {
-    bottom: 20px;
+    bottom: 84px;
     right: 20px;
     width: 40px;
     height: 40px;
   }
+}
+
+/* WhatsApp Buttons & Floating Widget */
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF !important;
+  border: 1px solid #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-whatsapp:hover {
+  background: #20BA5C;
+  border-color: #20BA5C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+.btn-whatsapp svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.floating-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.floating-whatsapp:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
+  color: #FFFFFF;
+}
+.floating-whatsapp svg {
+  width: 28px;
+  height: 28px;
+  fill: #FFFFFF;
+}
+@media (max-width: 640px) {
+  .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+  .floating-whatsapp svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Footer Social & Contact Styling */
+.footer-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.social-link:hover {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+.social-link svg {
+  flex-shrink: 0;
+}
+
+/* CTA Actions Layout */
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1325,7 +1424,7 @@ footer {
       <a href="#contact">Contact</a>
       <div class="mobile-nav-cta">
         <a href="#collection" class="btn">Explore Jewelry Gallery →</a>
-        <a href="#contact" class="btn btn-outline">Direct Inquiry</a>
+        <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20would%20like%20to%20make%20an%20inquiry%20regarding%20your%20luxury%20Agarwood%20collection." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Direct WhatsApp Inquiry</a>
       </div>
     </nav>
 
@@ -1357,7 +1456,7 @@ footer {
       </div>
     </div>
 
-    <div class="hero-art-container reveal-scale delay-1 parallax-item">
+    <div class="hero-art-container reveal-scale delay-1">
       <div class="hero-photo-card">
         <img src="images/campaign_bracelet_poster.jpg" alt="AYDI Premium Agarwood Bracelet - Nature Crafted to Last">
         <div class="hero-photo-badge">
@@ -1509,7 +1608,10 @@ footer {
         <div class="eyebrow">Campaign Spotlight</div>
         <h3>Oud. <em>Worn Differently.</em></h3>
         <p>Agarwood has been prized for millennia as aromatic incense and rare perfume oil. AYDI transforms this revered natural treasure into sculptural fine jewelry and personal heirlooms that carry both legacy and prestige.</p>
-        <a href="#contact" class="btn">Inquire for Bespoke Orders</a>
+        <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20am%20interested%20in%20a%20bespoke%20order%20for%20Oud%20jewelry." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire for Bespoke Orders
+        </a>
       </div>
     </div>
   </div>
@@ -1611,13 +1713,28 @@ footer {
 <!-- Call to Action -->
 <section class="cta" id="contact">
   <div class="wrap reveal-scale">
+    <div class="eyebrow" style="color: var(--gold); margin-bottom: 12px;">Contact & Acquisitions</div>
     <h2>We are building a legacy for <em>generations to come.</em></h2>
-    <p>Connect with AYDI for exclusive jewelry acquisitions, wholesale Agarwood, or plantation partnership opportunities.</p>
-    <a href="mailto:info@aydiagarwood.com?subject=Inquiry%20regarding%20AYDI%20Agarwood" class="btn">Get in Touch with AYDI</a>
+    <p>Connect with AYDI for exclusive jewelry acquisitions, wholesale Agarwood, bespoke orders, or plantation partnership opportunities.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20Agarwood%20products." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Inquire via WhatsApp
+      </a>
+      <a href="mailto:aydicorp51@gmail.com?subject=Inquiry%20regarding%20AYDI%20Agarwood" class="btn btn-outline">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email: aydicorp51@gmail.com
+      </a>
+    </div>
   </div>
 </section>
 
 </main>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20Agarwood%20products." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with AYDI on WhatsApp" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <!-- Floating Back to Top Button -->
 <button class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top" title="Back to top">
@@ -1655,7 +1772,10 @@ footer {
       </div>
 
       <div class="modal-actions">
-        <a href="#contact" class="btn" id="modalInquireBtn">Inquire for Acquisition</a>
+        <a href="https://wa.me/919995012679" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="modalInquireBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
         <button class="btn btn-outline" id="modalDismissBtn">Back to Gallery</button>
       </div>
     </div>
@@ -1686,16 +1806,27 @@ footer {
         <a href="#collection">Oud Wood Tasbih</a>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="#story">Our Story</a>
-        <a href="#about">About AYDI</a>
-        <a href="#what-we-do">Operations</a>
-        <a href="#contact">Contact & Inquiries</a>
+        <h4>Follow Us</h4>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/aydi_plantation?evlk=dmlzcHN1djByMzNz" target="_blank" rel="noopener noreferrer" class="social-link" title="Follow AYDI on Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            <span>Instagram: @aydi_plantation</span>
+          </a>
+          <a href="https://www.facebook.com/share/1FFJjWKo5p/" target="_blank" rel="noopener noreferrer" class="social-link" title="Follow AYDI on Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook: AYDI</span>
+          </a>
+          <a href="https://wa.me/919995012679" target="_blank" rel="noopener noreferrer" class="social-link" title="Chat on WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>WhatsApp: 9995012679</span>
+          </a>
+        </div>
       </div>
       <div>
         <h4>Direct Inquiries</h4>
         <p>AYDI Agarwood Pvt. Ltd.</p>
-        <p>Email: <a href="mailto:info@aydiagarwood.com">info@aydiagarwood.com</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/919995012679" target="_blank" rel="noopener noreferrer" style="color: var(--gold); text-decoration: underline;">+91 9995012679</a></p>
+        <p><strong>Email:</strong> <a href="mailto:aydicorp51@gmail.com" style="color: var(--gold); text-decoration: underline;">aydicorp51@gmail.com</a></p>
         <p>Location: India</p>
       </div>
     </div>
@@ -1807,7 +1938,10 @@ galleryCards.forEach(card => {
     modalDesc.textContent = desc;
     modalMaterial.textContent = material || 'Solid Indian Agarwood';
     modalFinish.textContent = finish || 'Master Artisan Hand Polish';
-    modalInquire.href = 'mailto:info@aydiagarwood.com?subject=' + encodeURIComponent('Acquisition Inquiry: ' + title + ' (' + ref + ')');
+    const waText = encodeURIComponent(`Hello AYDI, I would like to inquire about the ${title} (${ref}). Please share details and pricing.`);
+    modalInquire.href = `https://wa.me/919995012679?text=${waText}`;
+    modalInquire.target = '_blank';
+    modalInquire.rel = 'noopener noreferrer';
 
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
