@@ -1399,6 +1399,188 @@ footer {
     margin-top: 40px;
   }
 }
+
+/* Plantation Showcase Section */
+.plantation-section {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.plantation-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 30px 36px;
+  margin-bottom: 50px;
+}
+.p-stat {
+  border-right: 1px solid var(--line);
+  padding-right: 20px;
+}
+.p-stat:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.p-stat strong {
+  display: block;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.p-stat span {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  display: block;
+}
+
+.plantation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+.plantation-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+.plantation-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-lg);
+}
+.plantation-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0D0B0A;
+}
+.plantation-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.plantation-card:hover .plantation-img-wrap img {
+  transform: scale(1.05);
+}
+.plantation-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(18, 16, 14, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--gold);
+  border-left: 2px solid var(--gold);
+  padding: 6px 12px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.plantation-card-body {
+  padding: 24px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.plantation-card-body h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  line-height: 1.35;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.plantation-card-body p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.plantation-cta-banner {
+  background: var(--bg);
+  border: 1px solid var(--gold);
+  padding: 36px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(197, 160, 89, 0.08);
+}
+.plantation-cta-text h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 300;
+  margin: 4px 0 8px;
+  color: var(--text);
+}
+.plantation-cta-text p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .plantation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .plantation-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .p-stat:nth-child(2) {
+    border-right: none;
+  }
+}
+@media (max-width: 680px) {
+  .plantation-grid {
+    grid-template-columns: 1fr;
+  }
+  .plantation-stats {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    gap: 20px;
+  }
+  .p-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+    padding-right: 0;
+  }
+  .p-stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .plantation-cta-banner {
+    padding: 26px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .plantation-cta-banner .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1417,14 +1599,16 @@ footer {
 
     <nav class="nav-links" id="primaryNav">
       <a href="#top" class="active">Home</a>
-      <a href="#collection">Jewelry Gallery</a>
-      <a href="#what-we-do">What We Do</a>
+      <a href="#collection">Products & Gallery</a>
+      <a href="#plantation">Plantations</a>
+      <a href="#plantation">Plantations</a>
+        <a href="#what-we-do">Operations</a>
       <a href="#about">About</a>
       <a href="#story">Our Story</a>
       <a href="#contact">Contact</a>
       <div class="mobile-nav-cta">
-        <a href="#collection" class="btn">Explore Jewelry Gallery →</a>
-        <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20would%20like%20to%20make%20an%20inquiry%20regarding%20your%20luxury%20Agarwood%20collection." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Direct WhatsApp Inquiry</a>
+        <a href="#collection" class="btn">Explore All Products →</a>
+        <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20would%20like%20to%20make%20an%20inquiry%20regarding%20your%20luxury%20Agarwood%20products." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Direct WhatsApp Inquiry</a>
       </div>
     </nav>
 
@@ -1469,28 +1653,29 @@ footer {
 </section>
 
 <!-- Dedicated Jewelry Gallery Section -->
+<!-- Dedicated Jewelry & Luxury Oud Catalog -->
 <section id="collection" class="gallery-section">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">The Jewelry Collection</div>
-      <h2>Crafted with the <em>Character of Oud</em></h2>
-      <p>Discover our exclusive catalog of fine jewelry sculpted from rare Indian Agarwood. Each piece showcases decades of natural resin growth, warm organic texture, and refined craftsmanship.</p>
+      <div class="eyebrow">The Master Catalog · Fine Jewelry & Pure Oud</div>
+      <h2>Crafted with the <em>Spirit of Indian Agarwood</em></h2>
+      <p>Discover our certified luxury offerings — hand-sculpted Oud jewelry, single-source distilled Dehn Al Oud, wild aromatic wood chips, and master incense rituals directly from AYDI's sustainable heritage.</p>
     </div>
 
     <!-- Category Filter Bar -->
     <div class="gallery-filter-bar reveal delay-1">
-      <button class="filter-btn active" data-filter="all">All Pieces (05)</button>
-      <button class="filter-btn" data-filter="rings">Rings</button>
-      <button class="filter-btn" data-filter="bracelets">Bracelets</button>
-      <button class="filter-btn" data-filter="necklaces">Necklaces</button>
-      <button class="filter-btn" data-filter="tasbih">Tasbih</button>
+      <button class="filter-btn active" data-filter="all">All Products (19)</button>
+      <button class="filter-btn" data-filter="jewelry">Oud Jewelry (05)</button>
+      <button class="filter-btn" data-filter="oudoil">Pure Oud Oil (06)</button>
+      <button class="filter-btn" data-filter="chips">Oud Chips & Bakhoor (05)</button>
+      <button class="filter-btn" data-filter="rituals">Incense & Living (03)</button>
     </div>
 
     <!-- Product Gallery Grid -->
     <div class="gallery-grid" id="galleryGrid">
 
-      <!-- Item 01: Necklace -->
-      <article class="gallery-card reveal delay-1" data-category="necklaces" 
+      <!-- ITEM 01: Necklace (Jewelry) -->
+      <article class="gallery-card reveal delay-1" data-category="jewelry" 
         data-title="Oud Wood Necklace"
         data-ref="AYDI JEWELRY • 01"
         data-img="images/oud_wood_necklace.jpg"
@@ -1511,8 +1696,8 @@ footer {
         </div>
       </article>
 
-      <!-- Item 02: Gemstone Ring -->
-      <article class="gallery-card reveal delay-2" data-category="rings"
+      <!-- ITEM 02: Gemstone Ring (Jewelry) -->
+      <article class="gallery-card reveal delay-2" data-category="jewelry"
         data-title="Oud Wood Gemstone Ring"
         data-ref="AYDI JEWELRY • 02"
         data-img="images/oud_wood_gemstone_ring.jpg"
@@ -1533,8 +1718,8 @@ footer {
         </div>
       </article>
 
-      <!-- Item 03: Signet Ring -->
-      <article class="gallery-card reveal delay-3" data-category="rings"
+      <!-- ITEM 03: Signet Ring (Jewelry) -->
+      <article class="gallery-card reveal delay-3" data-category="jewelry"
         data-title="Oud Wood Signet Ring"
         data-ref="AYDI JEWELRY • 03"
         data-img="images/oud_wood_signet_ring.jpg"
@@ -1555,8 +1740,8 @@ footer {
         </div>
       </article>
 
-      <!-- Item 04: Bracelet -->
-      <article class="gallery-card reveal delay-1" data-category="bracelets"
+      <!-- ITEM 04: Bracelet (Jewelry) -->
+      <article class="gallery-card reveal delay-1" data-category="jewelry"
         data-title="Oud Wood Bracelet"
         data-ref="AYDI JEWELRY • 04"
         data-img="images/oud_wood_bracelet.jpg"
@@ -1577,8 +1762,8 @@ footer {
         </div>
       </article>
 
-      <!-- Item 05: Tasbih -->
-      <article class="gallery-card reveal delay-2" data-category="tasbih"
+      <!-- ITEM 05: Tasbih (Jewelry) -->
+      <article class="gallery-card reveal delay-2" data-category="jewelry"
         data-title="Oud Wood Tasbih"
         data-ref="AYDI JEWELRY • 05"
         data-img="images/oud_wood_tasbih.jpg"
@@ -1599,6 +1784,314 @@ footer {
         </div>
       </article>
 
+      <!-- ITEM 06: Royal Pure Oud Oil (Oud Oil) -->
+      <article class="gallery-card reveal delay-3" data-category="oudoil"
+        data-title="Royal Pure Oud Oil"
+        data-ref="AYDI OUD OIL • 01"
+        data-img="images/oudoil_01.jpg"
+        data-desc="Single-source hydro-distilled aged Indian Agarwood oil. Intensely complex, opening with rich leathery-woody accords followed by warm balsamic sweetness and remarkable lingering sillage."
+        data-material="100% Pure Undiluted Dehn Al Oud"
+        data-finish="Aged Single-Batch Vintage">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_01.jpg" alt="Royal Pure Oud Oil - AYDI Oud Oil 01" loading="lazy">
+          <span class="gallery-card-tag">Rare Distillation</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 01</div>
+          <h3 class="gallery-card-title">Royal Pure Oud Oil</h3>
+          <p class="gallery-card-desc">Aged Indian Agarwood oil in crystal flacon with gold cap, displaying deep balsamic richness and regal depth.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 07: Artisanal Decanter Oud Oil (Oud Oil) -->
+      <article class="gallery-card reveal delay-1" data-category="oudoil"
+        data-title="Artisanal Decanter Oud Oil"
+        data-ref="AYDI OUD OIL • 02"
+        data-img="images/oudoil_02.jpg"
+        data-desc="Hand-poured pure Oud oil extracted in copper stills using centuries-old heritage distillation techniques. Golden amber clarity with unmatched natural warmth and purity."
+        data-material="Aged Indian Aquilaria Agallocha Heartwood"
+        data-finish="Master Perfumer Hand Pour">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_02.jpg" alt="Artisanal Decanter Oud Oil - AYDI Oud Oil 02" loading="lazy">
+          <span class="gallery-card-tag">Master Reserve</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 02</div>
+          <h3 class="gallery-card-title">Artisanal Decanter Oud Oil</h3>
+          <p class="gallery-card-desc">Pure distilled golden Oud oil decanted by master perfumers from antique glass carafes into signature vials.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 08: Imperial Filigree Flacon Attar (Oud Oil) -->
+      <article class="gallery-card reveal delay-2" data-category="oudoil"
+        data-title="Imperial Filigree Flacon Attar"
+        data-ref="AYDI OUD OIL • 03"
+        data-img="images/oudoil_03.jpg"
+        data-desc="Pure concentrated Oud essence housed in a hand-engraved gold filigree crystal flacon with precision applicator. A definitive statement of timeless Oriental perfumery."
+        data-material="Pure Agarwood Distillate & Cut Crystal"
+        data-finish="Gold Filigree Crystal Vessel">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_03.jpg" alt="Imperial Filigree Flacon Attar - AYDI Oud Oil 03" loading="lazy">
+          <span class="gallery-card-tag">Heritage Flacon</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 03</div>
+          <h3 class="gallery-card-title">Imperial Filigree Flacon Attar</h3>
+          <p class="gallery-card-desc">Hexagonal crystal flacon etched with gold botanical motifs, reflecting pure dark amber Oud oil against natural heartwood.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 09: Coffer Reserve Oud Oil Set (Oud Oil) -->
+      <article class="gallery-card reveal delay-3" data-category="oudoil"
+        data-title="Coffer Reserve Oud Oil Set"
+        data-ref="AYDI OUD OIL • 04"
+        data-img="images/oudoil_04.jpg"
+        data-desc="Pair of vintage pure Oud oils presented in an antique hand-carved wooden coffer with ornate brass hardware. Features contrasting day and evening aromatic profiles of Indian Oud."
+        data-material="Vintage Oud Oil & Carved Teakwood Coffer"
+        data-finish="Heirloom Presentation Box">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_04.jpg" alt="Coffer Reserve Oud Oil Set - AYDI Oud Oil 04" loading="lazy">
+          <span class="gallery-card-tag">Collector Edition</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 04</div>
+          <h3 class="gallery-card-title">Coffer Reserve Oud Oil Set</h3>
+          <p class="gallery-card-desc">Curated twin flacons resting in a bespoke solid wood treasure casket with hand-hammered antique brass clasps.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 10: Connoisseur Attar Coffret (Oud Oil) -->
+      <article class="gallery-card reveal delay-1" data-category="oudoil"
+        data-title="Connoisseur Attar Coffret"
+        data-ref="AYDI OUD OIL • 05"
+        data-img="images/oudoil_05.jpg"
+        data-desc="Exclusive multi-flacon collection of aged Indian Oud oils and private botanical attars, nested in a velvet-lined carved rosewood humidor with floral accords and raw oud sticks."
+        data-material="Pure Oud Attars & Carved Rosewood"
+        data-finish="Crimson Velvet Fitted Interior">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_05.jpg" alt="Connoisseur Attar Coffret - AYDI Oud Oil 05" loading="lazy">
+          <span class="gallery-card-tag">Private Reserve</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 05</div>
+          <h3 class="gallery-card-title">Connoisseur Attar Coffret</h3>
+          <p class="gallery-card-desc">Twelve signature pure Oud attar flacons in an heirloom carved coffer, celebrating the multifaceted aromatic spectrum of Aquilaria.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 11: Facet Crystal Crown Oud Flacon (Oud Oil) -->
+      <article class="gallery-card reveal delay-2" data-category="oudoil"
+        data-title="Facet Crystal Crown Oud Flacon"
+        data-ref="AYDI OUD OIL • 06"
+        data-img="images/oudoil_06.jpg"
+        data-desc="Heavy-weight diamond-cut optical crystal perfume flacon crowned with a multi-faceted spherical stopper, holding first-press matured Indian Oud oil with natural heartwood accents."
+        data-material="First-Press Aquilaria Oil & Optical Crystal"
+        data-finish="Diamond-Cut Faceted Crystal">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_06.jpg" alt="Facet Crystal Crown Oud Flacon - AYDI Oud Oil 06" loading="lazy">
+          <span class="gallery-card-tag">Fine Perfumery</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI OUD OIL • 06</div>
+          <h3 class="gallery-card-title">Facet Crystal Crown Oud Flacon</h3>
+          <p class="gallery-card-desc">Architectural cut-crystal decanter with brilliant light refraction, containing intensely aromatic matured Dehn Al Oud.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 12: Premium Wild Oud Chips (Oud Chips & Bakhoor) -->
+      <article class="gallery-card reveal delay-3" data-category="chips"
+        data-title="Premium Indian Oud Chips"
+        data-ref="AYDI WOOD • 01"
+        data-img="images/product_02.jpg"
+        data-desc="High-grade naturally resin-laden Aquilaria heartwood slivers. Selected for clean, sweet, and deep resin bubbling on heat, filling spaces with rich traditional fragrance."
+        data-material="Grade-A Wild Indian Agarwood"
+        data-finish="Hand-Graded & Sun-Cured">
+        <div class="gallery-card-media">
+          <img src="images/product_02.jpg" alt="Premium Indian Oud Chips - AYDI Wood 01" loading="lazy">
+          <span class="gallery-card-tag">High Resin Grade</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI WOOD • 01</div>
+          <h3 class="gallery-card-title">Premium Indian Oud Chips</h3>
+          <p class="gallery-card-desc">Dense dark resinous Agarwood chips presented in an artisan brass bowl with raw uncarved heartwood pieces.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 13: Royal Crystal Grade Agarwood (Oud Chips & Bakhoor) -->
+      <article class="gallery-card reveal delay-1" data-category="chips"
+        data-title="Royal Crystal Grade Agarwood"
+        data-ref="AYDI WOOD • 02"
+        data-img="images/product_01.jpg"
+        data-desc="Generations of aromatic natural resin growth captured in hand-trimmed heartwood chips, curated for royal hospitality, special occasions, and refined aromatic connoisseurs."
+        data-material="Triple-Inspected Solid Agarwood"
+        data-finish="Hospitality Grade Selection">
+        <div class="gallery-card-media">
+          <img src="images/product_01.jpg" alt="Royal Crystal Grade Agarwood - AYDI Wood 02" loading="lazy">
+          <span class="gallery-card-tag">Hospitality Grade</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI WOOD • 02</div>
+          <h3 class="gallery-card-title">Royal Crystal Grade Agarwood</h3>
+          <p class="gallery-card-desc">Selected premium Oud chips displayed in an ornate cut-crystal centerpiece bowl for prestigious hospitality.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 14: Gandaura Luxury Bakhoor (Oud Chips & Bakhoor) -->
+      <article class="gallery-card reveal delay-2" data-category="chips"
+        data-title="Gandaura Luxury Bakhoor"
+        data-ref="AYDI WOOD • 03"
+        data-img="images/product_06.jpg"
+        data-desc="Signature handcrafted incense blend combining micro-crushed natural Agarwood with precious amber, exotic florals, and botanical gums. Yields long-lasting fragrant smoke."
+        data-material="Aged Agarwood, Amber & Botanical Gums"
+        data-finish="Matte Foil Zipper Pouch & Glass Compote">
+        <div class="gallery-card-media">
+          <img src="images/product_06.jpg" alt="Gandaura Luxury Bakhoor - AYDI Wood 03" loading="lazy">
+          <span class="gallery-card-tag">Signature Blend</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI WOOD • 03</div>
+          <h3 class="gallery-card-title">Gandaura Luxury Bakhoor</h3>
+          <p class="gallery-card-desc">Artisanal scented bakhoor in custom black matte packaging with gold typography, delivering enchanting fragrance.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 15: Pure Agarwood Wood Chips (Oud Chips & Bakhoor) -->
+      <article class="gallery-card reveal delay-3" data-category="chips"
+        data-title="Wild Heartwood Oud Chips"
+        data-ref="AYDI WOOD • 04"
+        data-img="images/product_03.jpg"
+        data-desc="Hand-chipped natural Indian Agarwood segments displaying wild tiger-stripe resin grain. Emits clean balsamic and balsamic-vanillic undertones under slow charcoal heat."
+        data-material="100% Wild Indian Aquilaria Heartwood"
+        data-finish="Sun-Dried Natural Cure">
+        <div class="gallery-card-media">
+          <img src="images/product_03.jpg" alt="Wild Heartwood Oud Chips - AYDI Wood 04" loading="lazy">
+          <span class="gallery-card-tag">Natural Cure</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI WOOD • 04</div>
+          <h3 class="gallery-card-title">Wild Heartwood Oud Chips</h3>
+          <p class="gallery-card-desc">Natural elongated incense chips on polished black slate, with authentic carved brass mabkhara and solid storage chest.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 16: Heirloom Rosewood Oud Coffer (Oud Chips & Bakhoor) -->
+      <article class="gallery-card reveal delay-1" data-category="chips"
+        data-title="Heirloom Rosewood Oud Coffer"
+        data-ref="AYDI WOOD • 05"
+        data-img="images/product_04.jpg"
+        data-desc="Three-tier hand-joined solid Indian rosewood coffer boxes equipped with mortise keyhole hardware, stacked with choice aromatic heartwood chips for premier gifting."
+        data-material="Solid Indian Rosewood & Aged Agarwood"
+        data-finish="Hand-Waxed Natural Timber & Brass">
+        <div class="gallery-card-media">
+          <img src="images/product_04.jpg" alt="Heirloom Rosewood Oud Coffer - AYDI Wood 05" loading="lazy">
+          <span class="gallery-card-tag">Luxury Gifting</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI WOOD • 05</div>
+          <h3 class="gallery-card-title">Heirloom Rosewood Oud Coffer</h3>
+          <p class="gallery-card-desc">Stackable handcrafted wooden presentation boxes preserving precious incense chips in optimal natural conditions.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 17: Artisanal Oud Incense & Walnut Boat (Incense & Rituals) -->
+      <article class="gallery-card reveal delay-2" data-category="rituals"
+        data-title="Artisanal Oud Incense & Walnut Boat"
+        data-ref="AYDI RITUAL • 01"
+        data-img="images/oudoil_10.jpg"
+        data-desc="Pure extruded Indian Agarwood incense sticks crafted without toxic bamboo cores or synthetic binders. Accompanied by a hand-carved solid walnut ash-catcher boat with brass insert."
+        data-material="100% Pure Agarwood Powder & Walnut Wood"
+        data-finish="Clean Organic Burn">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_10.jpg" alt="Artisanal Oud Incense & Walnut Boat - AYDI Ritual 01" loading="lazy">
+          <span class="gallery-card-tag">Meditative Living</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI RITUAL • 01</div>
+          <h3 class="gallery-card-title">Artisanal Oud Incense & Walnut Boat</h3>
+          <p class="gallery-card-desc">Subtle ribbon smoke from pure Agarwood incense over an organic hand-turned wooden tray for modern contemplative spaces.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 18: Heritage Brass Mabkhara & Raw Wood (Incense & Rituals) -->
+      <article class="gallery-card reveal delay-3" data-category="rituals"
+        data-title="Heritage Brass Mabkhara & Raw Wood"
+        data-ref="AYDI RITUAL • 02"
+        data-img="images/oudoil_07.jpg"
+        data-desc="Traditional etched solid brass burner with active charcoal ring and raw resinous wood chunk. Designed for deep aromatic diffusion throughout spacious homes and majlis."
+        data-material="Cast Brass, Ceramic Insulator & Agarwood"
+        data-finish="Antique Gold Hand-Engraved Finish">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_07.jpg" alt="Heritage Brass Mabkhara - AYDI Ritual 02" loading="lazy">
+          <span class="gallery-card-tag">Traditional Craft</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI RITUAL • 02</div>
+          <h3 class="gallery-card-title">Heritage Brass Mabkhara & Raw Wood</h3>
+          <p class="gallery-card-desc">Authentic incense brazier paired with dense natural Oud logs for traditional ceremonial fumigation rituals.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ITEM 19: The Aromatic Heritage Collection (Incense & Rituals) -->
+      <article class="gallery-card reveal delay-1" data-category="rituals"
+        data-title="The Aromatic Heritage Collection"
+        data-ref="AYDI RITUAL • 03"
+        data-img="images/oudoil_09.jpg"
+        data-desc="Grand celebratory fragrance set featuring concentrated pure Oud oil in a round flacon, raw natural frankincense tears, aromatic incense chips, and a hand-turned brass burner."
+        data-material="Pure Oud Oil, Frankincense & Cast Brass"
+        data-finish="Master Connoisseur Ensemble">
+        <div class="gallery-card-media">
+          <img src="images/oudoil_09.jpg" alt="The Aromatic Heritage Collection - AYDI Ritual 03" loading="lazy">
+          <span class="gallery-card-tag">Master Ensemble</span>
+        </div>
+        <div class="gallery-card-content">
+          <div class="gallery-card-num">AYDI RITUAL • 03</div>
+          <h3 class="gallery-card-title">The Aromatic Heritage Collection</h3>
+          <p class="gallery-card-desc">Complete oriental fragrance suite with pure oil, natural frankincense resin, and smoking brass burner set against velvet.</p>
+          <div class="gallery-card-footer">
+            <span class="gallery-card-action">View Full Piece ↗</span>
+          </div>
+        </div>
+      </article>
+
     </div>
 
     <!-- Editorial Spotlight Banner -->
@@ -1607,7 +2100,7 @@ footer {
       <div class="spotlight-text reveal-right delay-2">
         <div class="eyebrow">Campaign Spotlight</div>
         <h3>Oud. <em>Worn Differently.</em></h3>
-        <p>Agarwood has been prized for millennia as aromatic incense and rare perfume oil. AYDI transforms this revered natural treasure into sculptural fine jewelry and personal heirlooms that carry both legacy and prestige.</p>
+        <p>Agarwood has been prized for millennia as aromatic incense and rare perfume oil. AYDI transforms this revered natural treasure into sculptural fine jewelry, pure distilled essences, and personal heirlooms that carry both legacy and prestige.</p>
         <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20am%20interested%20in%20a%20bespoke%20order%20for%20Oud%20jewelry." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Inquire for Bespoke Orders
@@ -1630,7 +2123,7 @@ footer {
         <div class="num">01</div>
         <h3>Cultivation</h3>
         <p>Plantation development and ethical farmer partnerships cultivating an expanding network of over 140,000 trees.</p>
-        <a href="#contact" class="explore">Explore Cultivation →</a>
+        <a href="#plantation" class="explore">Explore Our Plantations →</a>
       </div>
       <div class="card reveal delay-2">
         <div class="num">02</div>
@@ -1653,6 +2146,126 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- Sustainable Plantations Section (Directly adjacent to Cultivation & Operations) -->
+<section id="plantation" class="plantation-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Sustainable Agroforestry & Ethical Cultivation</div>
+      <h2>140,000+ Trees. <em>Generations of Green Wealth.</em></h2>
+      <p>AYDI operates India's premier network of sustainable Aquilaria plantations. Located across fertile mist-laden hills, our agroforestry model integrates cutting-edge silvicultural research with grassroots farming cooperatives — ensuring steady natural resin yield, environmental conservation, and generational prosperity for local communities.</p>
+    </div>
+
+    <!-- Plantation Stats Row -->
+    <div class="plantation-stats reveal delay-1">
+      <div class="p-stat">
+        <strong>140,000+</strong>
+        <span>Aquilaria Trees Under Stewardship</span>
+      </div>
+      <div class="p-stat">
+        <strong>12+ Years</strong>
+        <span>Silvicultural Dedication & Research</span>
+      </div>
+      <div class="p-stat">
+        <strong>100%</strong>
+        <span>Ethical Cooperative Farming Model</span>
+      </div>
+      <div class="p-stat">
+        <strong>Zero Wild Depletion</strong>
+        <span>Certified Sustainable Regeneration</span>
+      </div>
+    </div>
+
+    <!-- Plantation Showcase Grid -->
+    <div class="plantation-grid">
+      <!-- Feature Card 1: Mountain Terraces -->
+      <div class="plantation-card reveal delay-1">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_07.jpg" alt="AYDI Terraced Mountain Agroforestry Plantation" loading="lazy">
+          <span class="plantation-badge">Terraced Mountain Agroforestry</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Hillside Agroforestry & High-Altitude Groves</h3>
+          <p>Sprawling plantations established across scenic mountainous elevations, offering optimal soil drainage, abundant rainfall, and cool mist essential for vigorous Aquilaria growth.</p>
+        </div>
+      </div>
+
+      <!-- Feature Card 2: Farmer Partnerships -->
+      <div class="plantation-card reveal delay-2">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_02.jpg" alt="AYDI Grassroots Farmer Partnerships" loading="lazy">
+          <span class="plantation-badge">Community Stewardship</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Grassroots Farmer Partnerships</h3>
+          <p>Partnering with indigenous farming communities with fair-trade agreements, technical guidance, and sapling provision to cultivate generational green wealth.</p>
+        </div>
+      </div>
+
+      <!-- Feature Card 3: Scientific Forestry -->
+      <div class="plantation-card reveal delay-3">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_03.jpg" alt="AYDI Forestry Specialists Conducting Canopy Audits" loading="lazy">
+          <span class="plantation-badge">Scientific Forestry</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Scientific Canopy Audits & Inoculation</h3>
+          <p>Certified AYDI forestry professionals monitor tree vigor, trunk girth, and organic bio-induction to ensure optimal, natural resin defense development.</p>
+        </div>
+      </div>
+
+      <!-- Feature Card 4: Nursery to Canopy -->
+      <div class="plantation-card reveal delay-1">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_08.jpg" alt="Hand-planting Aquilaria sapling into fertile soil" loading="lazy">
+          <span class="plantation-badge">Hand-Tended Nurturing</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Nurturing from Nursery to Canopy</h3>
+          <p>Every sapling is selected from verified parent seed trees and hand-planted into rich natural humus, nurtured without synthetic pesticides.</p>
+        </div>
+      </div>
+
+      <!-- Feature Card 5: Mature Grove Inspections -->
+      <div class="plantation-card reveal delay-2">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_05.jpg" alt="AYDI field team in mature sunlit plantation" loading="lazy">
+          <span class="plantation-badge">Monitored Maturity</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Mature Grove Life-Cycle Management</h3>
+          <p>Continuous field audits allow our botanists to determine the exact maturity window when heartwood resin concentration reaches peak aromatic perfection.</p>
+        </div>
+      </div>
+
+      <!-- Feature Card 6: Ecological Harvest Trail -->
+      <div class="plantation-card reveal delay-3">
+        <div class="plantation-img-wrap">
+          <img src="images/plantation_06.jpg" alt="Sustainable harvesting in misty morning plantation" loading="lazy">
+          <span class="plantation-badge">Sustainable Harvest</span>
+        </div>
+        <div class="plantation-card-body">
+          <h3>Reverent & Ecological Harvesting</h3>
+          <p>Harvesting follows strict zero-waste protocols. Resinous heartwood is carefully preserved, while surrounding sapwood is repurposed for natural incense and organic distillation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plantation WhatsApp Partnership Banner -->
+    <div class="plantation-cta-banner reveal delay-2">
+      <div class="plantation-cta-text">
+        <div class="eyebrow" style="color: var(--gold);">Cultivation Partnerships</div>
+        <h3>Join the AYDI Plantation & Farmer Network</h3>
+        <p>Explore cooperative plantation opportunities, farmland cultivation agreements, or verified Agarwood sapling supply.</p>
+      </div>
+      <a href="https://wa.me/919995012679?text=Hello%20AYDI%2C%20I%20am%20interested%20in%20your%20Agarwood%20Plantations%20and%20cultivation%20partnerships." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.489.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Inquire about Plantations on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- About Section -->
 <section id="about" class="about">
